@@ -58,13 +58,13 @@ CREATE TABLE `passagem` (
   codigo BIGINT NOT NULL AUTO_INCREMENT,
   passageiro_cpf VARCHAR(255) NOT NULL,
   assento_codigo BIGINT NOT NULL,
-  aereporto_sigla VARCHAR(255) NOT NULL,
+  aeroporto_sigla VARCHAR(255) NOT NULL,
   partida VARCHAR(255) NOT NULL,
   destino VARCHAR(255) NOT NULL,
   classe VARCHAR(255) NOT NULL,
   valor DECIMAL(10,2) NOT NULL,
   PRIMARY KEY(codigo),
   FOREIGN KEY(passageiro_cpf) REFERENCES `passageiro`(cpf),
-  FOREIGN KEY(aereporto_sigla) REFERENCES `aeroporto`(sigla),
+  FOREIGN KEY(aeroporto_sigla) REFERENCES `aeroporto`(sigla),
   FOREIGN KEY(assento_codigo) REFERENCES `assento`(codigo)
 );
