@@ -22,12 +22,12 @@ CREATE TABLE `aeroporto` (
   PRIMARY KEY(sigla)
 );
 
-CREATE TABLE `voo` (
-  codigo_de_voo BIGINT NOT NULL AUTO_INCREMENT,
-  id_aeronave BIGINT NOT NULL,
-  PRIMARY KEY(codigo_de_voo),
-  FOREIGN KEY(id_aeronave) REFERENCES `aeronave`(idaeronave)
-);
+--CREATE TABLE `voo` (
+--  codigo_de_voo BIGINT NOT NULL AUTO_INCREMENT,
+--  id_aeronave BIGINT NOT NULL,
+--  PRIMARY KEY(codigo_de_voo),
+--  FOREIGN KEY(id_aeronave) REFERENCES `aeronave`(idaeronave)
+--);
 
 CREATE TABLE `assento` (
   codigo BIGINT NOT NULL AUTO_INCREMENT,
@@ -47,11 +47,11 @@ CREATE TABLE `bagegem` (
 
 CREATE TABLE `itinerario` (
   aereporto_sigla VARCHAR(255) NOT NULL,
-  codigo_de_voo BIGINT NOT NULL,
+  id_aeronave BIGINT NOT NULL,
   chegada VARCHAR(255) NULL,
   partida INTEGER NOT NULL,
   FOREIGN KEY(aereporto_sigla) REFERENCES `aeroporto`(sigla),
-  FOREIGN KEY(codigo_de_voo) REFERENCES `voo`(codigo_de_voo)
+  FOREIGN KEY(id_aeronave) REFERENCES `aeronave`(idaeronave)
 );
 
 CREATE TABLE `passagem` (
