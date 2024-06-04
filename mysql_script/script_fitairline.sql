@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS fitairline;
+
 USE fitairline;
 
 CREATE TABLE `passageiro` (
@@ -29,14 +31,6 @@ CREATE TABLE `assento` (
   l_de_assento VARCHAR(2) NOT NULL,
   PRIMARY KEY(codigo),
   FOREIGN KEY(id_aeronave) REFERENCES `aeronave`(idaeronave)
-);
-
-CREATE TABLE `bagagem` (
-  codigo BIGINT NOT NULL AUTO_INCREMENT,
-  passageiro_cpf VARCHAR(255) NOT NULL,
-  peso FLOAT NULL,
-  PRIMARY KEY(codigo),
-  FOREIGN KEY(passageiro_cpf) REFERENCES `passageiro`(cpf)
 );
 
 CREATE TABLE `itinerario` (
@@ -99,19 +93,6 @@ INSERT INTO passageiro (cpf, nome, rg, telefone) VALUES
 ('88888888888', 'Guilherme', 'RG888888', '555555562'),
 ('99999999999', 'Felipe', 'RG999999', '555555563'),
 ('10101010101', 'Ahmad', 'RG101010', '555555564');
-
--- Inserir 1 bagagem para cada passageiro
-INSERT INTO bagagem (passageiro_cpf, peso) VALUES
-('11111111111', ROUND(RAND() * 20 + 10, 1)),
-('22222222222', ROUND(RAND() * 20 + 10, 1)),
-('33333333333', ROUND(RAND() * 20 + 10, 1)),
-('44444444444', ROUND(RAND() * 20 + 10, 1)),
-('55555555555', ROUND(RAND() * 20 + 10, 1)),
-('66666666666', ROUND(RAND() * 20 + 10, 1)),
-('77777777777', ROUND(RAND() * 20 + 10, 1)),
-('88888888888', ROUND(RAND() * 20 + 10, 1)),
-('99999999999', ROUND(RAND() * 20 + 10, 1)),
-('10101010101', ROUND(RAND() * 20 + 10, 1));
 
 -- Viagem GRU para JFK
 INSERT INTO itinerario (aeroporto_sigla, id_aeronave, chegada, partida) VALUES
