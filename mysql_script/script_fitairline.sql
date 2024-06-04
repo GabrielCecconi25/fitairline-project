@@ -36,7 +36,7 @@ CREATE TABLE `assento` (
 CREATE TABLE `itinerario` (
   aeroporto_sigla VARCHAR(255) NOT NULL,
   id_aeronave BIGINT NOT NULL,
-  chegada VARCHAR(255) NULL,
+  chegada VARCHAR(255) NOT NULL,
   partida VARCHAR(255) NOT NULL,
   FOREIGN KEY(aeroporto_sigla) REFERENCES `aeroporto`(sigla),
   FOREIGN KEY(id_aeronave) REFERENCES `aeronave`(idaeronave)
